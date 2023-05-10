@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png" />
+		<link rel="stylesheet" href="./style.css" class="rel" />
+		<title>SPLITTER</title>
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<img src="./images/logo.svg" alt="logo" />
+		</header>
+
+		<main>
+			<section class="user-inputs">
+				<div class="label">
+					<label for="bill">Bill</label>
+				</div>
+				<div class="input-container">
+					<input type="number" placeholder="0.00" name="bill" id="bill" min="0" step="0.01" />
+					<img src="./images/icon-dollar.svg" alt="dollar icon" />
+				</div>
+
+				<div class="label">
+					<label for="select-gratuity">Select Tip %</label>
+				</div>
+				<div class="btn-container">
+					<button class="gratuity" value="5">5%</button>
+					<button class="gratuity" value="10">10%</button>
+					<button class="gratuity" value="15">15%</button>
+					<button class="gratuity" value="25">25%</button>
+					<button class="gratuity" value="50">50%</button>
+					<input
+						type="number"
+						placeholder="Custom"
+						id="custom-gratuity"
+						value=""
+            min="0"
+            step="1" />
+				</div>
+
+				<div class="label">
+					<label for="people">Number of People</label>
+				</div>
+				<div class="input-container">
+					<input type="number" 
+            placeholder="0" 
+            name="people" 
+            id="people"
+            min="2"
+            step="1"  />
+					<img src="./images/icon-person.svg" alt="person icon" />
+				</div>
+			</section>
+
+			<section class="output-container">
+				<div class="outputs">
+					<div class="output">
+						<p>
+							Tip Amount <br />
+							<span>/ person</span>
+						</p>
+						<div id="split-tip" class="output-value">$ 0.00</div>
+					</div>
+					<div class="output">
+						<p>
+							Total <br />
+							<span>/ person</span>
+						</p>
+						<div id="split-total" class="output-value">$ 0.00</div>
+					</div>
+				</div>
+				<button id="reset" >RESET</button>
+        <!-- <button id="reset" disabled>RESET</button> -->
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+	--primary-cyan: #26c0ab;
+	--dark-primary-cyan: #00494d;
+	--greyer-cyan: #5e7a7d;
+	--grey-cyan: #7f9c9f;
+	--light-cyan: #c5e4e7;
+	--lighter-cyan: #f4fafa;
+	--white: #ffffff;
+
+	font-family: 'Space Mono', sans-serif;
+	font-weight: 700;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #c5e4e7;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	margin-block: 50px;
+}
+
+main {
+	background-color: var(--white);
+	border-radius: 20px;
+}
+
+.user-inputs {
+	padding: 30px;
+}
+
+.label {
+	font-size: 14px;
+	color: var(--greyer-cyan);
+	margin-bottom: 20px;
+}
+
+.input-container {
+	position: relative;
+}
+
+.input-container > input {
+	margin-block: 0 40px;
+	padding: 10px;
+	font-size: 16px;
+	width: 300px;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--lighter-cyan);
+	text-align: right;
+	cursor: pointer;
+	color: var(--dark-primary-cyan);
+	font-size: 18px;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+	font-family: 'Space Mono', sans-serif;
+	font-weight: 700;
+	text-align: center;
+}
+input[type='number']::placeholder {
+	font-family: 'Space Mono', sans-serif;
+	font-weight: 700;
+}
+
+.input-container > input:focus {
+	outline: none;
+}
+
+.input-container > img {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+}
+
+.btn-container {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 15px;
+	margin-bottom: 40px;
+}
+
+.btn-container > button {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--dark-primary-cyan);
+	color: var(--white);
+	font-family: 'Space Mono', sans-serif;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.btn-container > button.active {
+	background-color: var(--primary-cyan);
+	color: var(--dark-primary-cyan);
+}
+
+.btn-container > input {
+	border: none;
+	padding: 10px;
+	background-color: var(--lighter-cyan);
+	font-family: 'Space Mono', sans-serif;
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+.btn-container > input::placeholder {
+	text-align: center;
+}
+
+.input-container {
+	position: relative;
+}
+
+.input-container > input {
+	margin-block: 10px 40px;
+	padding: 10px;
+	font-size: 16px;
+	width: 300px;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--lighter-cyan);
+	text-align: right;
+	cursor: pointer;
+	color: var(--dark-primary-cyan);
+	font-size: 18px;
+}
+.input-container > input:focus {
+	outline: none;
+}
+
+.input-container > img {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.output-container {
+	background-color: var(--dark-primary-cyan);
+	border: none;
+	border-radius: 20px;
+	padding-top: 32px;
+	padding-block: 50px 20px;
+	padding-inline: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.output {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 35px;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+
+.output > p {
+	font-size: 16px;
+	font-family: 'Space Mono', sans-serif;
+	color: var(--white);
+}
+
+.output > p > span {
+	opacity: 0.5;
+}
+
+.output-value {
+	font-size: 30px;
+	font-family: 'Space Mono', sans-serif;
+	color: var(--grey-cyan);
+}
+
+#reset {
+	padding: 15px;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--primary-cyan);
+	font-family: 'Space Mono', sans-serif;
+	font-size: 16px;
+	color: var(--dark-primary-cyan);
+	align-self: flex-end;
+	width: 100%;
+	cursor: pointer;
+}
+#reset:disabled {
+	opacity: 50%;
+	cursor: not-allowed;
+}
+
+@media screen and (min-width: 900px) {
+	main {
+		display: flex;
+		width: 920px;
+		height: 490px;
+		margin: 0 auto;
+	}
+
+	.user-inputs {
+		width: 50%;
+	}
+
+	.output-container {
+		width: 50%;
+		margin-block: 35px;
+		margin-right: 35px;
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.output {
+		padding-inline: 40px;
+	}
+
+	.input-container > input {
+		width: 379px;
+	}
+
+	.input-container > input {
+		position: relative;
+		width: 379px;
+		bottom: 20px;
+	}
+
+	.input-container > img {
+		position: absolute;
+		top: 7px;
+	}
+
+	.btn-container {
+		grid-template-columns: 1fr 1fr 1fr;
+		margin-bottom: 0;
+	}
+
+	.btn {
+		width: 115px;
+	}
+
+	.btn-container > input {
+		width: 95px;
+	}
+}
