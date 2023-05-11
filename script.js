@@ -39,18 +39,21 @@ gratuityBtns.forEach(btn => {
     // reset all gratuities
     resetGratuities();
     btn.classList.add('active');
+    console.log("button on 42: ==> ", btn)
+    console.log("button on 42: ==> ", parseInt(btn.value))
+    
+    handleUserInput()
 
     // if(validateBillTotal() && validateNumPeople()){
     //   handleUserInput();
     // }
   })
 })
-
-customGratuity.addEventListener('focus', ()=>{
-  resetGratuities();
-    if(validateBillTotal() && validateCustomTip() && validateNumPeople()){
+customGratuity.addEventListener('click', () => resetGratuities())
+customGratuity.addEventListener('blur', ()=>{
+  if(validateBillTotal() && validateCustomTip() && validateNumPeople()){
     handleUserInput();
-  }
+  } 
 })
 
 // ** Functionality
@@ -79,30 +82,33 @@ function getUserInputs(){
 }
 
 function getTipValue(){
-  const defaultTip = document.getElementsByClassName('active');
-  let tip
-  if(defaultTip){
-    // access value
-    tip = defaultTip.value
-    
-  } else if(validateCustomTip()){
+  const defaultTip = document.getElementsByClassName('active').value;
+  console.log('default tip: ', defaultTip)
+  let tip = null;
+  if (typeof parseInt(defaultTip) == 'number') {
+    console.log(defaultTip, " <== this is the default tip")
+    tip = parseInt(defaultTip);
+    console.log('Tip ln 86: ', tip) 
+  } else if (validateCustomTip()){
     tip = customGratuity.value
-  }
-
+    console.log('Tip ln 90: ', tip)
+  }     
+  
   return tip*0.01
 };
 
 function validateCustomTip(){
   const checkTip = parseFloat(customGratuity.value)
-  if(isNaN(checkTip)){
+  console.log('checking custom tip:', typeof checkTip)
+  if(typeof checkTip !== 'number'){
     throw new Error ('Input a valid number')
-  }
+  } 
   return true
 }
 
 function validateNumPeople(){
   const numPeople = parseInt(people.value)
-  if(isNaN(numPeople)){
+  if(typeof numPeople !== 'number'){
     throw new Error(`Your input of earthlings can only be a positive interger.`)
   }
   return true
@@ -110,10 +116,9 @@ function validateNumPeople(){
 
 function validateBillTotal(){
   const billTotal = parseInt(bill.value)
-  if(isNaN(billTotal)){
+  if(typeof billTotal !== 'number'){
     throw new Error(`Your input of moneys can only be a non-zero positive number.`)
-  }
-  
+  }  
   return true
 }
 
@@ -124,6 +129,7 @@ function handleUserInput() {
   if(validateBillTotal() && validateCustomTip() && validateNumPeople()){
     console.log('Calculating...')
     const { billTotal, numPeople, tipPercentage} = getUserInputs();
+    console.log(billTotal, numPeople, tipPercentage)
     const tipAmount = billTotal*tipPercentage;
     const billWithTip = tipAmount + billTotal;
 
