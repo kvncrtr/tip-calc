@@ -197,6 +197,7 @@ input[type='number']::placeholder {
 	width: 100%;
 	cursor: pointer;
 }
+
 #reset:disabled {
 	opacity: 50%;
 	cursor: not-allowed;
